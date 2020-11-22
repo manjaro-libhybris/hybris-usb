@@ -27,25 +27,22 @@ build() {
 }
 
 package() {
-  cd "${srcdir}"
+
 
   # usb tethering
 
-  install -d ${pkgdir}/usr/bin
-  install -m 755 usb-tethering ${pkgdir}/usr/bin/
+  mkdir ${pkgdir}/usr/bin
+  install -m755 usb-tethering "$pkgdir"/usr/bin/
 
-  install -d ${pkgdir}/usr/lib/systemd/system/
-  install -m 644 usb-tethering.service ${pkgdir}/usr/lib/systemd/system/
+  mkdir ${pkgdir}/usr/lib/systemd/system/
+  install -m644 "$srcdir"/usb-tethering.service "$pkgdir"/usr/lib/systemd/system/
 
   # dhcpd configuration
 
-  install -d ${pkgdir}/usr/lib/tmpfiles.d/
-  install -m 644 tmpfiles.d.hybris-usb.conf ${pkgdir}/usr/lib/tmpfiles.d/hybris-usb.conf
+  mkdir ${pkgdir}/usr/lib/tmpfiles.d/
+  install -m644 "$srcdir"/tmpfiles.d.hybris-usb.conf "$pkgdir"/usr/lib/tmpfiles.d/hybris-usb.conf
 
-  install -d ${pkgdir}/etc/systemd/system/dhcpd4.service.d/
-  install -m 644 dhcpd4.service-customexec.conf ${pkgdir}/etc/systemd/system/dhcpd4.service.d/customexec.conf
-
-  install -d ${pkgdir}/etc/hybris-usb/
-  install -m 644 dhcpd.conf ${pkgdir}/etc/hybris-usb/
+  mkdir ${pkgdir}/etc/hybris-usb/
+  install -m644 "$srcdir"/dhcpd.conf "$pkgdir"/etc/hybris-usb/
 }
 
