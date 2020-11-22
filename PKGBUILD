@@ -32,7 +32,7 @@ package() {
   # usb tethering
 
   mkdir ${pkgdir}/usr/bin
-  install -m755 usb-tethering "$pkgdir"/usr/bin/
+  install -m755 "$srcdir"/usb-tethering "$pkgdir"/usr/bin/
 
   mkdir ${pkgdir}/usr/lib/systemd/system/
   install -m644 "$srcdir"/usb-tethering.service "$pkgdir"/usr/lib/systemd/system/
