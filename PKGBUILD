@@ -27,15 +27,15 @@ package() {
   mkdir -p ${pkgdir}/usr/bin
   install -m755 "$srcdir"/usb-tethering "$pkgdir"/usr/bin/
 
-  mkdir ${pkgdir}/usr/lib/systemd/system/
+  mkdir -p ${pkgdir}/usr/lib/systemd/system/
   install -m644 "$srcdir"/usb-tethering.service "$pkgdir"/usr/lib/systemd/system/
 
   # dhcpd configuration
 
-  mkdir ${pkgdir}/usr/lib/tmpfiles.d/
+  mkdir -p ${pkgdir}/usr/lib/tmpfiles.d/
   install -m644 "$srcdir"/tmpfiles.d.hybris-usb.conf "$pkgdir"/usr/lib/tmpfiles.d/hybris-usb.conf
 
-  mkdir ${pkgdir}/etc/hybris-usb/
+  mkdir -p ${pkgdir}/etc/hybris-usb/
   install -m644 "$srcdir"/dhcpd.conf "$pkgdir"/etc/hybris-usb/
 }
 
