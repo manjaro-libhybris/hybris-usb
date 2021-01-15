@@ -8,7 +8,7 @@ arch=('armv7h')
 url=""
 license=('custom')
 provides=()
-depends=('systemd' 'dhcp')
+depends=('systemd' 'dhcp' 'net-tools')
 options=()
 source=('usb-tethering'
 	'usb-tethering.service'
